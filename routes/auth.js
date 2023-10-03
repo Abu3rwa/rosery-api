@@ -33,7 +33,7 @@ router.get("/me", authMiddleware, async (req, res) => {
 
 router.post(
   "/",
-  [check("acess", "please your access Id")],
+  [check("access", "please your access Id")],
   async (req, res) => {
     const { access } = req.body;
     // query student from the db by email

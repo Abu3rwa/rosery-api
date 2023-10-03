@@ -6,9 +6,10 @@ const teacherSchema = mongoose.Schema(
       type: String,
       required: true,
     },
-    access: {
+    password: {
       type: String,
     },
+    grades: [Numbeer],
     subjects: [
       {
         name: {
@@ -35,22 +36,25 @@ const teacherSchema = mongoose.Schema(
             performace: { type: Number },
           },
         ],
+        tests: [
+          {
+            submitted: { type: Boolean },
+            Done: { type: Boolean },
+            toBeCorrect: { type: Boolean },
+            title: { type: String },
+            questions: [
+              {
+                question: { type: String, required: true },
+                answers: [{ text: { type: String }, value: { type: Boolean } }],
+              },
+            ],
+            performace: { type: Number },
+            score: { type: Number },
+          },
+        ],
       },
     ],
-    // academics: [
-    //   {
-    //     name: {
-    //       type: String,
-    //     },
-    //     // tests: [
-    //     //   { title: { type: String }, questions: [
 
-    //     //     { type: { type: String } }
-    //     //   ] },
-    //     // ],
-
-    //   },
-    // ],
     phoneNumber: {
       type: String,
     },
