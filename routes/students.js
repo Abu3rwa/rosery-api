@@ -30,7 +30,7 @@ router.post(
   [
     check("name", "please enter student's name").not().isEmpty(),
     check("email", "please enter an email").isEmail(),
-    check("level", "Student's level is requireid").not().isEmpty(),
+    check("grade", "Student's grade is requireid").not().isEmpty(),
     check("age", "Student's age is requireid").not().isEmpty(),
     check("address", "Student's address is requireid").not().isEmpty(),
     check("phoneNumber", "phone mumber is requireid").not().isEmpty(),
@@ -41,17 +41,8 @@ router.post(
     if (!errors.isEmpty()) {
       res.status(400).json({ errors: errors.array() });
     }
-    const {
-      name,
-      level,
-      subjects,
-      grade,
-      phoneNumber,
-      age,
-      address,
-      email,
-      photo,
-    } = req.body;
+    const { name, subjects, grade, phoneNumber, age, address, email, photo } =
+      req.body;
     try {
       let student = await Student.findOne({ email });
       let students = await Student.find();
@@ -62,7 +53,6 @@ router.post(
       student = new Student({
         ID: students.length + 1,
         name,
-        level,
         subjects,
         phoneNumber,
         age,

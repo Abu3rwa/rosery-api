@@ -12,9 +12,8 @@ module.exports = (req, res, next) => {
   try {
     // verify the token
     const verified = jwt.verify(token, "process.env.JWT_SECRET_KEY");
-    console.log(verified);
     // set the token to the req object
-    req.user = verified.student;
+    req.user = verified.user;
     // call the next function
     next();
   } catch (error) {

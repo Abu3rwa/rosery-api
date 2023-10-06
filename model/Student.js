@@ -9,7 +9,6 @@ const studentSchema = mongoose.Schema(
 
     grade: {
       type: Number,
-      required: true,
     },
     admitted: { type: Boolean, default: false },
     access: {
@@ -39,7 +38,7 @@ const studentSchema = mongoose.Schema(
                 answers: [{ text: { type: String }, value: { type: Boolean } }],
               },
             ],
-            performace: { type: Number },
+            performace: { type: Number, default: 0 },
           },
         ],
       },

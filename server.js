@@ -35,6 +35,7 @@ app.use(
 app.use("/api/auth", require("./routes/auth"));
 
 app.use("/api/students", require("./routes/students"));
+app.use("/api/homeworks", require("./routes/homeworks"));
 app.listen(process.env.PORT || 8000, () =>
   console.log("listening to  port 8000")
 );
