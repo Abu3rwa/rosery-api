@@ -29,7 +29,7 @@ router.post(
   "/create",
   [
     check("name", "please enter student's name").not().isEmpty(),
-    check("email", "please enter an email").isEmail(),
+    check("email", "please entrser an email").isEmail(),
     check("grade", "Student's grade is requireid").not().isEmpty(),
     check("age", "Student's age is requireid").not().isEmpty(),
     check("address", "Student's address is requireid").not().isEmpty(),

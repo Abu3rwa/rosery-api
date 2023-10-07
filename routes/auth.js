@@ -13,7 +13,8 @@ const Student = require("../model/Student");
 */
 router.get("/me", authMiddleware, async (req, res) => {
   try {
-    const student = await Student.findById(req.user.id).select("-password");
+    console.log(req.user.id);
+    const student = await Student.findById(req.user.id);
     // const student = await Student.findById("6517ba8830aeb3fc23c10ebe");
     console.log("load: ", student);
     res.status(200).json(student);
@@ -54,7 +55,7 @@ router.post(
     // }
     // generate a token and send it to the client
     const payload = {
-      student: {
+      user: {
         id: student.id,
       },
     };
